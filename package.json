@@ -1,0 +1,10 @@
+{
+  "name": "typescript",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@turf/centroid": "^6.0.2",
+    "@turf/transform-scale": "^5.1.5",
+    "mapbox-gl": "^1.2.1"
+  }
+}
