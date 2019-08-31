@@ -63214,32 +63214,6 @@ export default {
       "id":"28b7f20b-c5c4-47cd-9204-8377cb548b80"
    },
    "cellSize":0.04,
-   "zones":[
-      {
-         "id":"0",
-         "value":0
-      },
-      {
-         "id":"1",
-         "value":125
-      },
-      {
-         "id":"2",
-         "value":159
-      },
-      {
-         "id":"3",
-         "value":196
-      },
-      {
-         "id":"4",
-         "value":208
-      },
-      {
-         "id":"5",
-         "value":258
-      }
-   ],
    "fertilizer":{
       "id":"sulfan",
       "percentage":24.0,
