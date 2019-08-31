@@ -9,9 +9,12 @@ body {
   width:100%;
 }
 
-.divMarker{
+.radios {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 999;
+}
+.radios label {
   display: block;
-  width: 300px; 
-  background-color: red;
-  height: 100px; 
 }

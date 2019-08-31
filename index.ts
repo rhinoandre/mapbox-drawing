@@ -107,13 +107,21 @@ const updateSourceMap = (features) => {
   });
 }
 
+let filteredFeatures = [];
+
 map.on('load', function () {
-  const { lastSelectedMode, featureCollection: { features }, plainProperty, zonedProperty } = applicationMap;
   addSourceToMap();
   addLayersToMap();
 
+  const { lastSelectedMode, featureCollection: { features } } = applicationMap;
+
   // The only features that are needed are the ones who has an ID in its properties
-  let filteredFeatures = getFeaturesWithId(features);
+  filteredFeatures = getFeaturesWithId(features);
+  drawApplication(lastSelectedMode);
+});
+
+function drawApplication (mode) {
+  const { featureCollection: { features }, plainProperty, zonedProperty } = applicationMap;
 
   // Scale down the polygons to show an space between them
   // MODE: Zoned
@@ -121,9 +129,9 @@ map.on('load', function () {
   updateSourceMap(scaledDownFeatures);
 
   // Get the zones from the zoned or plain property given the last selected mode
-  const zones = isZoned(lastSelectedMode) ? zonedProperty.zones : plainProperty.zones;
+  const zones = isZoned(mode) ? zonedProperty.zones : plainProperty.zones;
   // Split the feature by ids into the zones
-  const featuresByZone = getIdsFromZones(zones, features, lastSelectedMode);
+  const featuresByZone = getIdsFromZones(zones, features, mode);
 
   // For fast access create an object to get the amount of N based on the feature ID
   // This will be used when using the brush to change the N value for the features
@@ -138,8 +146,13 @@ map.on('load', function () {
   const layers = LAYER_COLORS.map((color, index) => ({ color, index, amount: '' }));
   // Update the amount that each color represents on the layer
   zones.forEach(({ id, value }) => layers[id].amount = value);
-  console.log(layers)
 
   // Finally add the layer
-  updateLayersToMap(layers, lastSelectedMode);
+  updateLayersToMap(layers, mode);
+}
+
+document.querySelectorAll('input[type=radio]').forEach(radio => {
+  radio.addEventListener('change', function({ target }) {
+    drawApplication(target.value);
+  });
 });
