@@ -1,0 +1,1 @@
+export const isZoned = (mode) => mode === 'ZONED';
