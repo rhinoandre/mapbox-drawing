@@ -1,8 +1,8 @@
-import { isZoned } from './helper';
-import { map, addSourceToMap, updateSourceMap, SOURCE_MAP_ID } from './mapbox';
-import { addLayersToMap } from './layer';
-import drawApplication from './draw';
-import applicationMap from './applicationMap';
+import { isZoned } from './src/helper';
+import { map, addSourceToMap, updateSourceMap, SOURCE_MAP_ID } from './src/mapbox';
+import { addLayersToMap } from './src/layer';
+import drawApplication from './src/draw';
+import applicationMap from './src/applicationMap';
 
 import './style.css';
 
