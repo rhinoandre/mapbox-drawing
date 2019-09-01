@@ -11,6 +11,9 @@ const getFeaturesWithId = (features) => features.filter(({ properties }) => prop
 let filteredFeatures = [];
 
 map.on('load', function () {
+  // Force resize the make the map fullscreen
+  window.dispatchEvent(new Event('resize'));
+
   addSourceToMap();
   addLayersToMap();
 
