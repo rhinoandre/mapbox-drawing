@@ -11,6 +11,9 @@ export const map = new mapboxgl.Map({
   accessToken: 'pk.eyJ1Ijoicmhpbm9hbmRyZSIsImEiOiJjanZmNHBoaDYyOGR5NDBwZmdqeTZkZ2oyIn0.KuDwHiNv6PZkRiPG4xG39A'
 });
 
+// Force resize the make the map fullscreen
+window.dispatchEvent(new Event('resize'));
+
 export const addSourceToMap = () => map.addSource(SOURCE_MAP_ID, {
   'type': 'geojson',
   data: {
