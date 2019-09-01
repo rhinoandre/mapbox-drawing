@@ -16,5 +16,6 @@ body {
   z-index: 999;
 }
 .radios label {
+  color: #fff;
   display: block;
 }
