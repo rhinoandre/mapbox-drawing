@@ -1,6 +1,5 @@
 import transformFeatures from './transformFeatures'
 import { updateSourceMap } from './mapbox';
-import applicationMap from './applicationMap';
 import { isZoned } from './helper';
 import { updateLayersToMap, LAYER_COLORS } from './layer';
 
@@ -26,8 +25,11 @@ function getIdsFromZones(zones, features, mode) {
   return nFeatureIds;
 }
 
-export default function drawApplication(features, mode) {
-  const { plainProperty, zonedProperty } = applicationMap;
+export default function drawApplication(features, mode, applicationMap) {
+  const {
+    plainProperty,
+    zonedProperty,
+  } = applicationMap;
 
   const transformedFeatures = transformFeatures(features, mode);
   updateSourceMap(transformedFeatures);

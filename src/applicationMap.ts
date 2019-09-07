@@ -1,7 +1,7 @@
 export default {
    "id":"1d8bae70-fa3d-4cf8-ae40-950346906c22",
    "name":"Comuna 01",
-   "lastSelectedMode":"ZONED",
+   "mode":"ZONED",
    "edited":true,
    "fieldId":"28b7f20b-c5c4-47cd-9204-8377cb548b80",
    "featureCollection":{

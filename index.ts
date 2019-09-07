@@ -17,16 +17,16 @@ map.on('load', function () {
   addSourceToMap();
   addLayersToMap();
 
-  const { lastSelectedMode, featureCollection: { features } } = applicationMap;
+  const { mode, featureCollection: { features } } = applicationMap;
 
   // The only features that are needed are the ones who has an ID in its properties
   filteredFeatures = getFeaturesWithId(features);
-  drawApplication(filteredFeatures, lastSelectedMode);
+  drawApplication(filteredFeatures, mode, applicationMap);
 });
 
 
 document.querySelectorAll('input[type=radio]').forEach(radio => {
   radio.addEventListener('change', function ({ target }) {
-    drawApplication(filteredFeatures, target.value);
+    drawApplication(filteredFeatures, target.value, applicationMap);
   });
 });
