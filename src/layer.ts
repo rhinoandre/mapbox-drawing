@@ -48,11 +48,21 @@ export function addLayersToMap() {
   })
 }
 
-export function updateLayersToMap(layers, mode) {
-  const style = map.getStyle();
+function createLayers(zones) {
+  return LAYER_COLORS.map((color, index) => ({
+    color,
+    index,
+    amount: zones[index].value
+  }));
+}
+
+export function updateLayersToMap(zones, mode) {
+  // Create the layers
+  const layers = createLayers(zones);
 
   // update layers by mutating the style
   // since mapbox doesn't have a dedicated method
+  const style = map.getStyle();
   layers.forEach((newLayer) => {
     const layerObject = createColoredLayer(newLayer, mode);
     const index = style.layers.findIndex((layer) => layer.id === layerObject.id);
